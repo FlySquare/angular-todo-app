@@ -1,13 +1,15 @@
 <div class="app-todo">
     <div class="row">
+      <form (ngSubmit)="onSubmit()">
         <div class="col-12 row inputGroup">
-            <div class="col-md-8 form-group">
+              <div class="col-md-8 form-group">
                 <input type="text" style="margin-bottom: 10px;" class="form-control"aria-describedby="emailHelp" placeholder="Enter New ToDo">
               </div>
               <div class="col-md-4 form-group">
-                <button style="width: 100%" id="saveNewTodo" class="btn btn-success">Save</button>
+                <button style="width: 100%" id="saveNewTodo" type="submit" class="btn btn-success">Save</button>
               </div>
         </div>
+      </form>
         <hr style="width: 75%;margin: auto; margin-top: 4%;">
         <div class="col-12 todosGroup">
             <div class="list-group">

@@ -1,4 +1,6 @@
 import { Component } from "@angular/core";
+import { FormBuilder, FormGroup } from '@angular/forms';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
     selector: "app-todo",
@@ -7,5 +9,7 @@ import { Component } from "@angular/core";
 })
 
 export class TodoComponent {
-
+    onSubmit(){
+        console.log("asdf");
+    }
 }
