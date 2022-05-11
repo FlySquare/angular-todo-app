@@ -1,0 +1,13 @@
+.app-todo{
+    margin: 40px;
+}
+
+.inputGroup{
+    margin-bottom: 20px;
+    width: 85%;
+    margin: auto;
+}
+
+.todosGroup{
+    margin-top: 20px;
+}
