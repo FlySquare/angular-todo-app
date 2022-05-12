@@ -7,7 +7,7 @@ import { Component } from "@angular/core";
 })
 
 export class HeaderComponent {
-    githubUrl = "https://github.com/FlySquare";
+    githubUrl = "https://github.com/FlySquare/angular-todo-app";
     linkedinUrl = "https://linkedin.com/in/flysquare";
     instagramUrl = "https://instagram.com/fly.square";
     emailUrl = "mailto:uarda@teklifbilisim.com";

@@ -22,10 +22,10 @@
     <hr style="width: 75%;margin: auto; margin-top: 4%;">
     <div class="col-12 todosGroup">
       <div class="list-group">
-        <div *ngFor="let item of getItems()" class="list-group-item list-group-item-action "
-           [ngClass]="item.action == false ? 'list-group-item-danger' : 'list-group-item-success'">{{item.desc}}
-          <span *ngIf="item.action == false"><a (click)="doneItem(item.id)" href="javascript:void(0);">Done</a></span>
-          <span *ngIf="item.action == true"><a (click)="deleteItem(item.id)" href="javascript:void(0);">Delete</a></span>
+        <div *ngFor="let todo of (getItems() | keyvalue)" [ngClass]="getObject(todo.value).action == false ? 'list-group-item-danger' : 'list-group-item-success'" class="list-group-item list-group-item-action ">
+          #{{todo.key}} - {{getObject(todo.value).desc}}
+          <span *ngIf="getObject(todo.value).action == false"><a (click)="doneItem(todo.key)" href="javascript:void(0);">Done</a></span>
+          <span *ngIf="getObject(todo.value).action == true"><a (click)="deleteItem(todo.key)" href="javascript:void(0);">Delete</a></span>
         </div>
       </div>
     </div>

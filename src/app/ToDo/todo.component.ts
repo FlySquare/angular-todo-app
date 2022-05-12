@@ -10,10 +10,11 @@ import {HttpClient} from '@angular/common/http';
 
 export class TodoComponent {
   showAll : boolean = true;
-  items : any | null = JSON.parse(window.localStorage.getItem('todos') || '{}');
+  items : any | null = JSON.parse(window.localStorage.getItem('todos') || '[]');
   addTodo(input: any) {
     if (input != '') {
-      this.items.push({id:this.items.length+1,desc: input, action: false});
+      var newIndex = typeof this.items.slice(-1).pop() === 'undefined' ? 1 : this.items.slice(-1).pop()['id'] +1;
+      this.items.push({id:newIndex,desc: input, action: false});
       window.localStorage.setItem('todos',JSON.stringify(this.items));
     } else {
       alert("Please check all fields");
@@ -28,11 +29,16 @@ export class TodoComponent {
   }
 
   doneItem(itemId:any){
-    this.items[itemId-1]['action'] = true;
+    this.items[itemId]['action'] = true;
     window.localStorage.setItem('todos',JSON.stringify(this.items));
   }
 
+  getObject(obj:any){
+    return obj;
+  }
+
   deleteItem(itemId:any){
-    //this.items = this.items.filter(item => item.id != itemId)
+    this.items.splice(itemId,1);
+    window.localStorage.setItem('todos',JSON.stringify(this.items));
   }
 }
