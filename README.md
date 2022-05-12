@@ -1,5 +1,5 @@
 # Test Url
-[TestUrl](https://iamumut.com/angular-todo-app/)
+Test Url: [https://iamumut.com/angular-todo-app/](https://iamumut.com/angular-todo-app/)
 
 # AngularFirst
 
