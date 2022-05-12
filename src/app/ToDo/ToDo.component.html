@@ -1,20 +1,33 @@
 <div class="app-todo">
-    <div class="row">
-      <form (ngSubmit)="onSubmit()">
-        <div class="col-12 row inputGroup">
-              <div class="col-md-8 form-group">
-                <input type="text" style="margin-bottom: 10px;" class="form-control"aria-describedby="emailHelp" placeholder="Enter New ToDo">
-              </div>
-              <div class="col-md-4 form-group">
-                <button style="width: 100%" id="saveNewTodo" type="submit" class="btn btn-success">Save</button>
-              </div>
+  <div class="row">
+    <div class="col-12 row inputGroup">
+      <div class="col-md-7 form-group">
+        <input type="text" style="margin-bottom: 10px;" class="form-control" aria-describedby="emailHelp"
+               (keydown.enter)="addTodo(newTodo.value); newTodo.value = '';" #newTodo placeholder="Enter New ToDo">
+      </div>
+      <div class="col-md-3 form-group">
+        <button style="width: 100%" id="saveNewTodo" type="submit" class="btn btn-success"
+                (click)="addTodo(newTodo.value); newTodo.value = '';">Save
+        </button>
+      </div>
+      <div class="col-lg-2 form-group">
+        <div class="form-check">
+          <input class="form-check-input" [(ngModel)]="showAll" type="checkbox" value="" id="flexCheckDefault">
+          <label class="form-check-label" for="flexCheckDefault">
+            Show All
+          </label>
         </div>
-      </form>
-        <hr style="width: 75%;margin: auto; margin-top: 4%;">
-        <div class="col-12 todosGroup">
-            <div class="list-group">
-                <a href="#" class="list-group-item list-group-item-action list-group-item-primary">This is a primary list group item</a>
-              </div>
-        </div>
+      </div>
     </div>
+    <hr style="width: 75%;margin: auto; margin-top: 4%;">
+    <div class="col-12 todosGroup">
+      <div class="list-group">
+        <div *ngFor="let item of getItems()" class="list-group-item list-group-item-action "
+           [ngClass]="item.action == false ? 'list-group-item-danger' : 'list-group-item-success'">{{item.desc}}
+          <span *ngIf="item.action == false"><a (click)="doneItem(item.id)" href="javascript:void(0);">Done</a></span>
+          <span *ngIf="item.action == true"><a (click)="deleteItem(item.id)" href="javascript:void(0);">Delete</a></span>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>

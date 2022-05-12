@@ -11,3 +11,11 @@
 .todosGroup{
     margin-top: 20px;
 }
+
+.list-group div span{
+  position: absolute;
+  top: -5px;
+  right: 5px;
+  padding: 0.75rem 0.25rem;
+  color: inherit;
+}
